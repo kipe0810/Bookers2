@@ -1,29 +1,28 @@
-<div class="area">
-	<section>
-		<h1>User info</h1>
-			<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fillback: "no_image.jpg" %>
-			<div>
-				<h4>name</h4>
-				<h4><%= @user.name %></h4>
-			</div>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 
-			<div>
-				<h4>introduction</h4>
-				<h4><%= @user.introduction %></h4>
-			</div>
-			<% if @user.id == current_user.id %>
-				<%= link_to "", edit_user_path(@user), class: "btn btn-lg glyphicon glyphicon-wrench btn btn-default" %>
-			<% end %>
-	</section>
-	<section>
-		<h1>New book</h1>
-		<%= form_for(@book) do |f| %>
-		    <h4>Title</h4>
-		    <%= f.text_field :title %>
-		    <h4>Opinion</h4>
-		    <%= f.text_area :opinion %><br>
-
-		    <%= f.submit 'Create Book', class: "btn btn-info" %>
-		<% end %>
-	</section>
+<div class="container">
+	<div class="row">
+		<%= render 'list', user: @user, book: @book %>
+		<div class="col-sm-9">
+			<h1>Books</h1>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+					<% @books.each do |book| %>
+					<tr>
+						<td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+						<td><%= link_to book.title, book_path(book.id) %></td>
+						<td><%= book.opinion %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+    </div>
 </div>

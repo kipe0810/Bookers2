@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'home/about'
   resources :books
   devise_for :users

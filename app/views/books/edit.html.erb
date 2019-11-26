@@ -1,2 +1,12 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+
+
+<div class="about-box">
+	<h1>Editing Book</h1>
+	<%= form_for(@book) do |f| %>
+		<h4>title</h4>
+		<%= f.text_field :title %>
+		<h4>opinion</h4>
+		<%= f.text_area :body %><br>
+		<%= f.submit 'Update Book', class: "btn btn-primary" %>
+	<% end %>
+</div>

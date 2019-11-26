@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" style="background-color: black;">
       <div class="container">
@@ -44,10 +43,10 @@
                 <%= link_to "About", home_about_path, class: "glyphicon glyphicon-link" %>
               </li>
               <li class="">
-                <%= link_to " Sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
+                <%= link_to " sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
               </li>
               <li class="">
-                <%= link_to " Log in", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
+                <%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
               </li>
             <% end %>
           </ul>
