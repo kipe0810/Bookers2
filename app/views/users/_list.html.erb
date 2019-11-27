@@ -17,6 +17,8 @@
 
 					<% if user.id == current_user.id %>
 						<%= link_to "", edit_user_path(user), class: "btn btn-block glyphicon glyphicon-wrench btn btn-default" %>
+					<% else %>
+					    <%= link_to "", user_path(current_user), class: "btn btn-block glyphicon glyphicon-wrench btn btn-default" %>
 					<% end %>
 			</section>
 			<section>
